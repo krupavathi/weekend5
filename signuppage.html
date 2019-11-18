@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>signuppage</title>
+	<style type="text/css">
+		#signupdiv{
+			background-color: lightgrey;
+			width: 500px;
+			height: 500px;
+			text-align:; center;
+			margin-left: 400px;
+			padding: 20px;
+			
+		}
+		#submitbtn{
+			width: 100px;
+			height: 50px;
+			border-radius: 20px;
+			background-color: blue;
+			border-color: blue;
+		}
+		#already{
+			color: white;
+		}
+		#loginbtn{
+			width: 50px;
+			height: 25px;
+			border-radius: 10px;
+			background-color: blue;
+			border-color: blue;
+			color: white
+		}
+		/*a{
+			text-decoration: none;
+			color: white;
+		}
+*/
+	</style>
+</head>
+<body>
+	<div id="signupdiv">
+		<center><h1>SIGNUP</h1></center>
+		<form id="signup_form">
+		<label>USERNAME:</label>
+		<input type="text"  id="username"><br>
+		<span id="iusername"></span><br><br>
+		<label>PASSWORD:</label>
+		<input type="password"  id="password"><br>
+		<span id="ipassword"></span><br><br>
+		<label>GENDER:</label>
+		<input type="radio" name="male">male
+		<input type="radio" name="female">female<br><br><br>
+		<label>COUNTRY:</label>
+		<select>
+		<option>INDIA</option>
+		<option>KOREA</option>
+		<option>MALDIVES</option>
+		<option>SINGAPORE</option>
+		</select><br><br><br>
+		<button id="submitbtn" onclick="signup_valid()">submit</button><br><br><br>
+		</form>
+		<p id="already">Do you have account already ?
+		<button id="loginbtn"><a href="loginpage.html">login</a></button></p>
+	
+	</div>
+	<script type="text/javascript">
+			function signup_valid(){
+		var regfname = /^[a-zA-Z ]{2,30}$/;
+		var regpwd = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+		var name=document.forms["signup_form"]["username"].value;
+		var pwd=document.forms["signup_form"]["password"].value;
+
+		if(name=='null' || name=="") {
+		document.getElementById("iusername").innerHTML="username can't be blank";
+		document.getElementById("iusername").style.color="#ff0000b5";
+		document.getElementById("username").style.border="1px solid #ff0000b5";
+		}	
+		else if(regfname.test(name)==false){
+		document.getElementById("iusername").innerHTML="Please Enter Valid username";
+		document.getElementById("iusername").style.color="#ff0000b5";
+		document.getElementById("username").style.border="1px solid #ff0000b5";
+		}
+
+		if(pwd=='null' || pwd==""){
+		document.getElementById("ipassword").innerHTML="password can't be blank";	
+		document.getElementById("ipassword").style.color="#ff0000b5	";
+		document.getElementById("password").style.border="1px solid #ff0000b5";	
+		}
+		else if(regpwd.test(pwd)==false){
+		document.getElementById("ipassword").innerHTML="please enter valid password";	
+		document.getElementById("ipassword").style.color="#ff0000b5	";
+		document.getElementById("password").style.border="1px solid #ff0000b5";	
+		}
+		else{
+			
+  			window.location.href = "to-file.html"
+		}
+		return false;
+		}
+	</script>
+</body>
+</html>

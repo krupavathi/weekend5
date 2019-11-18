@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login page</title>
+	<style type="text/css">
+		#login_body{
+			background-color: #e6e6ff;
+			width: 500px;
+			height: 300px;
+			text-align-last: center;
+			margin-left: 400px;
+			padding: 20px;
+		}
+		#email_div{
+			font-size: 30px;
+			color: #3333ff;
+		}
+		#pswd_div{
+			font-size: 30px;
+			color: #3333ff;
+		}
+		#email_if{
+			padding: 10px;
+		}
+		#password_if{
+			padding: 10px;
+		}
+		#login_submit{
+			background-color: blue;
+			border-color: blue;
+			width: 100px;
+			height: 50px;
+			color: black;
+			text-align-last: center;
+			border-radius: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="login_body">
+	<h1>LOGIN</h1>
+	<form id="my_login_form" action="to-file.html">
+	
+		<label>E-mail ID</label><br>
+		<input type="email" id="email_if"><br>
+		<span id=iemail_mgs></span>
+		<br>
+	
+		<label>PASSWORD</label><br>
+		<input type="password" name="password" id="password_if"><br>
+		<span id=ipassword_mgs></span>
+		<br></form>
+	<button id="login_submit" onclick="check_form()">submit</button>
+</div>
+<script type="text/javascript">
+	function check_form(){
+		var regemail =/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{1,5}){2,25})$/;
+		var regpwd = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+		var email=document.forms["my_login_form"]["email_if"].value;
+		var pwd=document.forms["my_login_form"]["password_if"].value;
+
+		if(email=='null' || email=="") {
+		document.getElementById("iemail_mgs").innerHTML="email can't be blank";
+		document.getElementById("iemail_mgs").style.color="#ff0000b5";
+		document.getElementById("email_if").style.border="1px solid #ff0000b5";
+		}	
+		else if(regemail.test(email)==false){
+		document.getElementById("iemail_mgs").innerHTML="Please Enter Valid email";
+		document.getElementById("iemail_mgs").style.color="#ff0000b5";
+		document.getElementById("email_if").style.border="1px solid #ff0000b5";
+		}
+
+		if(pwd=='null' || pwd==""){
+		document.getElementById("ipassword_mgs").innerHTML="password can't be blank";	
+		document.getElementById("ipassword_mgs").style.color="#ff0000b5	";
+		document.getElementById("password_if").style.border="1px solid #ff0000b5";	
+		}
+		else if(regpwd.test(pwd)==false){
+		document.getElementById("ipassword_mgs").innerHTML="please enter valid password";	
+		document.getElementById("ipassword_mgs").style.color="#ff0000b5	";
+		document.getElementById("password_if").style.border="1px solid #ff0000b5";	
+		}
+		else{
+			
+  			window.location.href = "to-file.html"
+		}
+		return false;
+		}
+
+
+
+
+
+
+</script>
+</body>
+</html>
